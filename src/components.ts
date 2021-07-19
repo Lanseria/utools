@@ -1,1 +1,1 @@
-export * from "./tree/index";
+export * from "./tree/foreach";

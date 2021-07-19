@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@lanseria/utools": ["../src"]
+    },
+    "baseUrl": ".",
     "rootDir": "../",
     "strict": true,
     "strictNullChecks": true,

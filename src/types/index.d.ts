@@ -10,3 +10,7 @@ interface IObj<T = any> {
   [key: string]: T;
   [key: number]: T;
 }
+
+interface INode extends IObj {
+  children?: INode[];
+}
