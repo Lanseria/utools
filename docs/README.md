@@ -21,3 +21,16 @@ treeForeach(
   ForeachType.Bfs
 );
 ```
+
+## treeMap 树 Map
+
+```ts
+import { treeMap } from "@lanseria/utools";
+
+const newData = treeMap(node, (item: INode) => {
+  item.id = item.name;
+  delete item.name;
+  // DO NOT Delete children
+});
+console.log(JSON.stringify(newData));
+```
