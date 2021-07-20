@@ -5,12 +5,12 @@
 ## treeForeach 树遍历
 
 ```ts
-import { treeForeach } from "@lanseria/utools";
+import { treeForeach, ForeachType } from "@lanseria/utools";
 /**
  *
  * @param node A Node width children
  * @param cb A Function
- * @param isRecursive is Recursive
+ * @param foreachType foreach type
  * @returns void
  */
 treeForeach(
@@ -18,6 +18,6 @@ treeForeach(
   (n) => {
     console.log(n);
   },
-  true
+  ForeachType.Bfs
 );
 ```
