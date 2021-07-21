@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tree To List 树转为数组操作 普通测试 1`] = `
+Array [
+  Object {
+    "name": "a",
+  },
+  Object {
+    "name": "a1",
+  },
+  Object {
+    "name": "a11",
+  },
+  Object {
+    "name": "a12",
+  },
+  Object {
+    "name": "a2",
+  },
+  Object {
+    "name": "a21",
+  },
+  Object {
+    "name": "a22",
+  },
+  Object {
+    "name": "a3",
+  },
+  Object {
+    "name": "a31",
+  },
+  Object {
+    "name": "a32",
+  },
+]
+`;

@@ -1,3 +1,7 @@
+import { treeClone, treeCloneById } from "@lanseria/utools";
+/**
+ * 多树
+ */
 export const data1 = [
   {
     name: "a",
@@ -76,3 +80,11 @@ export const data1 = [
     ],
   },
 ];
+/**
+ * 单树
+ */
+export const data2 = treeClone(data1[0]);
+/**
+ * 有唯一ID的树
+ */
+export const data3 = treeCloneById(data2);

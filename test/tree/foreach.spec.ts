@@ -1,12 +1,12 @@
 import { treeForeach, ForeachType } from "@lanseria/utools";
-import { data1 } from "./mock";
+import { data1, data2 } from "../mock";
 
 describe("Tree Foreach 树循环", () => {
   describe("Dfs 深度遍历", () => {
     describe("Recursive 递归式", () => {
       it("List.length", () => {
         const list: INode[] = [];
-        treeForeach(data1[0], (n) => {
+        treeForeach(data2, (n) => {
           list.push(n);
         });
         expect(list.length).toBe(10);
@@ -31,7 +31,7 @@ describe("Tree Foreach 树循环", () => {
       };
       it("List.length", () => {
         const list: INode[] = [];
-        treeForeachNonRecursive(data1[0], (n) => {
+        treeForeachNonRecursive(data2, (n) => {
           list.push(n);
         });
         expect(list.length).toBe(10);
@@ -56,7 +56,7 @@ describe("Tree Foreach 树循环", () => {
     };
     it("List.length", () => {
       const list: INode[] = [];
-      treeForeachBfs(data1[0], (n) => {
+      treeForeachBfs(data2, (n) => {
         list.push(n);
       });
       expect(list.length).toBe(10);
