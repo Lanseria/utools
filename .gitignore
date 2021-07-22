@@ -8,8 +8,6 @@ test-bundle
 test/unit/coverage
 package-lock.json
 playground/temp
-yarn.lock
-.vscode
 .idea
 *.swp
 *.tgz
