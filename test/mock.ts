@@ -1,4 +1,4 @@
-import { treeClone, treeCloneById } from "@lanseria/utools";
+import { treeClone, treeCloneById, treeToListById } from "@lanseria/utools";
 /**
  * 多树
  */
@@ -88,3 +88,7 @@ export const data2 = treeClone(data1[0]);
  * 有唯一ID的树
  */
 export const data3 = treeCloneById(data2);
+/**
+ * 有pid与id的扁平列表
+ */
+export const data4 = treeClone(treeToListById(data3));

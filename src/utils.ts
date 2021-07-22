@@ -13,11 +13,14 @@ function isObject(obj: INode, isReal = false) {
  * @param hash 唯一Hash
  * @returns selft
  */
-const treeClone = (tree: INode, hash = new WeakMap()): INode => {
+const treeClone = (
+  tree: INode | IObj[],
+  hash = new WeakMap()
+): INode | IObj[] => {
   if (hash.has(tree)) {
     return hash.get(tree);
   }
-  const obj: INode = Array.isArray(tree) ? [] : {};
+  const obj: INode | IObj[] = Array.isArray(tree) ? [] : {};
   hash.set(tree, obj);
   for (let key in tree) {
     obj[key] = isObject(tree[key]) ? treeClone(tree[key], hash) : tree[key];
@@ -69,4 +72,111 @@ const mergeProperties = <T>(distObject: T, srcObject: IObj) => {
   };
 };
 
-export { treeClone, treeCloneById, mergeProperties };
+/**
+ * 使用递归的方式
+ * @param node
+ * @param cb
+ */
+const dfs = (item: INode, cb: Fn) => {
+  cb && cb(item);
+  if (item.children && item.children.length) {
+    // for (let i = item.children.length - 1; i >= 0; i--) {
+    //   const m = item.children[i];
+    //   dfs(m, cb);
+    // }
+    for (let i = 0; i < item.children.length; i++) {
+      const m = item.children[i];
+      dfs(m, cb);
+    }
+  }
+};
+/**
+ * 使用递归的方式
+ * @param node 需要自带 id
+ * @param cb
+ * @param parentId
+ */
+const dfsUseId = (item: INode, cb: Fn, parentId = -1) => {
+  item.parentId = parentId;
+  cb && cb(item);
+  if (item.children && item.children.length) {
+    // for (let i = item.children.length - 1; i >= 0; i--) {
+    //   const m = item.children[i];
+    //   dfs(m, cb);
+    // }
+    if (!("id" in item)) {
+      throw new Error("无ID字段");
+    }
+    for (let i = 0; i < item.children.length; i++) {
+      const m = item.children[i];
+      dfsUseId(m, cb, item.id);
+    }
+  }
+};
+
+/**
+ * 使用非递归的方式
+ * @param node
+ * @param cb
+ */
+const dfsStack = (node: INode, cb: Fn) => {
+  const stack: INode[] = [];
+  // const nodes: INode[] = [];
+  if (node) {
+    // 推入当前处理的node
+    stack.push(node);
+    while (stack.length) {
+      const item: INode = stack.pop() as INode;
+      if (item?.children && item.children.length) {
+        const children = item.children;
+        // for (let i = 0; i < children.length; i++) {
+        //   stack.push(children[i]);
+        // }
+        for (let i = children.length - 1; i >= 0; i--) {
+          stack.push(children[i]);
+        }
+      }
+      /**
+       * 操作 item
+       */
+      cb && cb(item);
+      // nodes.push(item);
+    }
+  }
+};
+/**
+ * Bfs 遍历方式
+ * @param node
+ * @param cb
+ */
+const bfsStack = (node: INode, cb: Fn) => {
+  const stack: INode[] = [];
+  // const nodes: INode[] = [];
+  if (node) {
+    stack.push(node);
+    while (stack.length) {
+      const item: INode = stack.shift() as INode;
+      if (item?.children && item.children.length) {
+        const children = item.children;
+        for (let i = 0; i < children.length; i++) {
+          stack.push(children[i]);
+        }
+      }
+      /**
+       * 操作 item
+       */
+      cb && cb(item);
+      // nodes.push(item)
+    }
+  }
+};
+
+export {
+  treeClone,
+  treeCloneById,
+  mergeProperties,
+  dfs,
+  dfsStack,
+  bfsStack,
+  dfsUseId,
+};

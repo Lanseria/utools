@@ -1,5 +1,5 @@
 import { treeCloneById } from "@lanseria/utools";
-import { data2 } from "./mock";
+import { data2 } from "../mock";
 
 describe("Utils 工具函数", () => {
   it("treeCloneById 拷贝并赋值唯一ID", () => {

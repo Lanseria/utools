@@ -14,3 +14,12 @@ interface IObj<T = any> {
 interface INode extends IObj {
   children?: INode[];
 }
+
+interface PList extends IObj {
+  parentId: number;
+  id: number;
+}
+interface PNode extends INode {
+  parentId: number;
+  id: number;
+}
