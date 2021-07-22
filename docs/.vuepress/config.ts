@@ -7,13 +7,13 @@ export default defineUserConfig<DefaultThemeOptions>({
   title: "@lanseria/utools",
   description: "Alternative JavaScript Tool Library.",
   head: [
-    ["link", { rel: "manifest", href: "/manifest.webmanifest" }],
+    ["link", { rel: "manifest", href: "./manifest.webmanifest" }],
     [
       "link",
       {
         rel: "apple-touch-icon",
         sizes: "120x120",
-        href: "/images/icons/apple-touch-icon.png",
+        href: "./images/icons/apple-touch-icon.png",
       },
     ],
     [
@@ -22,7 +22,7 @@ export default defineUserConfig<DefaultThemeOptions>({
         rel: "icon",
         type: "image/png",
         sizes: "32x32",
-        href: "/images/icons/favicon-32x32.png",
+        href: "./images/icons/favicon-32x32.png",
       },
     ],
     [
@@ -31,16 +31,19 @@ export default defineUserConfig<DefaultThemeOptions>({
         rel: "icon",
         type: "image/png",
         sizes: "16x16",
-        href: "/images/icons/favicon-16x16.png",
+        href: "./images/icons/favicon-16x16.png",
       },
     ],
-    ["link", { rel: "mask-icon", href: "/images/icons/safari-pinned-tab.svg" }],
+    [
+      "link",
+      { rel: "mask-icon", href: "./images/icons/safari-pinned-tab.svg" },
+    ],
     ["meta", { name: "theme-color", content: "#ffffff" }],
     ["meta", { name: "msapplication-TileColor", content: "#2b5797" }],
     // ...其他标签
   ],
   themeConfig: {
-    logo: "/images/icons/android-chrome-96x96.png",
+    logo: "./images/icons/android-chrome-96x96.png",
   },
   plugins: [
     [
