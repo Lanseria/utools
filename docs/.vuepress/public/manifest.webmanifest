@@ -2,7 +2,7 @@
   "name": "@lanseria/utools",
   "short_name": "UTools",
   "description": "Alternative JavaScript Tool Library.",
-  "start_url": "/index.html",
+  "start_url": "/utools/",
   "display": "standalone",
   "background_color": "#fff",
   "theme_color": "#3eaf7c",
