@@ -1,4 +1,5 @@
 import { intersection, keys, pick } from "lodash-es";
+import { config } from "./config";
 
 function isObject(obj: INode, isReal = false) {
   if (isReal) {
@@ -97,14 +98,15 @@ const dfs = (item: INode, cb: Fn) => {
  * @param parentId
  */
 const dfsUseId = (item: INode, cb: Fn, parentId = -1) => {
-  item.parentId = parentId;
+  const pKey = config.parentId;
+  item[pKey] = parentId;
   cb && cb(item);
   if (item.children && item.children.length) {
     // for (let i = item.children.length - 1; i >= 0; i--) {
     //   const m = item.children[i];
     //   dfs(m, cb);
     // }
-    if (!("id" in item)) {
+    if (!item.hasOwnProperty("id")) {
       throw new Error("无ID字段");
     }
     for (let i = 0; i < item.children.length; i++) {

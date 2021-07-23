@@ -1,5 +1,7 @@
+import { config } from "../config";
+
 const listToTree = (items: IObj[]) => {
-  const pKey = "parentId";
+  const pKey = config.parentId;
   const result = []; // 存放结果集
   let itemMap: IObj = {}; //
 
