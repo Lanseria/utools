@@ -100,3 +100,15 @@ const idList = treeCloneById(data2);
 
 console.log(JSON.stringify(idList));
 ```
+
+### normalDistribution 正态分布
+
+> Box-Muller
+
+```ts{3}
+import { normalDistribution } from "@lanseria/utools";
+
+const x = normalDistribution(0, 0.01);
+
+console.log(x);
+```

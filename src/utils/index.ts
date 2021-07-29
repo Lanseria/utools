@@ -1,1 +1,6 @@
-export { treeClone, treeCloneById, mergeProperties } from "../utils";
+export {
+  treeClone,
+  treeCloneById,
+  mergeProperties,
+  normalDistribution,
+} from "../utils";
