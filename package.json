@@ -1,6 +1,6 @@
 {
   "name": "@lanseria/utools",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A U Tools",
   "main": "lib/index.js",
   "module": "es/index.js",
